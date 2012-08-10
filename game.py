@@ -1,6 +1,6 @@
 def user_input(type):
     """
-    uses parameter type to choose what to be used for input
+    uses parameter type to choose what to be used for the input
     1 = number input
     2 = string input
     """
