@@ -2,6 +2,8 @@
 # Use only square coordinates for now
 forest1 = [[0,5],[5,5],[5,10],[0,10]]
 
+# Begin area realization
+
 
 def checkLoc():
 	
