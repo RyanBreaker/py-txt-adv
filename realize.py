@@ -23,6 +23,17 @@ def realize(coords):
     h = coordsL[7] # highest
     
     if l > h or l == h: # sanity check
-		exit("ERROR: In realize")
+		exit("ERROR: In realize") # Need to work on better error messages
+	
+	coords = []
+	i = l
+	ii = i
+	while l <= h: # puts each possible coord into coords
+		coords.append([l,i])
+		if i == h: # if i made it to h
+			l += 1 # add one to l
+			i = ii # reset i
+		else:
+			i += 1 # otherwise add to i
 	
 	# adding more Saturday
