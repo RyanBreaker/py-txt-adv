@@ -1,4 +1,5 @@
 def go(direc):
+    global x,y
     direcs = ["north",'n', "south",'s', "east",'e', "west",'w']
     diags  = ["northeast",'ne', "northwest",'nw', "southeast",'se', "southwest",'sw']
     if direc in direcs:
@@ -32,4 +33,3 @@ def go(direc):
             print "Go where?"
         else:
             print "I have no idea where that is."
-

@@ -1,3 +1,9 @@
 Python 2 Text-Based Adventure Game Engine
 
 Beginner project that was started on August 8, 2012.
+
+This is a very simple text-based adventure game engine I am making as a project to help myself learn Python by doing it while I am reading and going deeper into it. This isn't necessarily something to be taken seriously, but I think I'll have fun with it in the future once I get it actually working. I will occasionally post updates as to what I'm doing, adding, working on, etc in case anyone would like to watch this.
+
+Until I get this up as at least a very-basic prototype, I will not accept any commits, but ideas and suggestions will always be great to hear to help a newbie out!
+
+I am using Python 2.7.3 on Linux to develop it.
