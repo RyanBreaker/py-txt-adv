@@ -29,7 +29,7 @@ def go(direc):
             exit("ERROR: In go()")
     else:
         if direc == "":
-			print "Go where?"
-		else:
-			print "I have no idea where that is."
+            print "Go where?"
+        else:
+            print "I have no idea where that is."
 
