@@ -1,39 +1,35 @@
-# [0,0] [5,0] [5,5] [0,5]
-# Would include:
-#   [0,0],[0,1],[0,2],[0,3],[0,4],[0,5]
-#   [0,0],[1,0],[2,0],[3,0],[4,0],[5,0]
-#   		
-
 def realize(coords):
 	"""
 	"realize" = to find all of the coords inside an area
-	Finds them by laying-out the coords in coordL, getting the
-	lowest and highest elements, and returning the possible
-	coords
+	Finds them by laying-out the coords in coordL/coordsR,
+	getting the lowest and highest elements, and returning
+	the possible coords.
 	"""
-    e = 0 # element number
-    coordsL = [] # Coords 'Laid'-out
-    for i in coords: # lays out coords to get lowest/highest nums
-		for ii in coords[e]:
-			coordsL.append(ii)
-		e += 1
+    coordsL = [] # Left coords 'Laid'-out
+    coordsR = [] # Right coords Laid-out
+    for i in coords: # for each list in coords list:
+		coordsL.append(i[0]) # append first
+		coordsR.append(i[1]) # append right
 	
-    coordsL.sort()
-    l = coordsL[0] # lowest
-    h = coordsL[7] # highest
+    coordsL.sort()  # Sort to get lowest and highest easily
+    lL = coordsL[0] # lowest-left
+    hL = coordsL[3] # highest-left
+    coordsR.sort()
+    lR = coordsR[0]
+    hR = coordsR[3]
     
-    if l > h or l == h: # sanity check
+    if lL > hL or lL == hL: # sanity check
 		exit("ERROR: In realize") # Need to work on better error messages
+	elif lR > hR or lR == hR:
+		exit("ERROR: In realize")
 	
 	coords = []
-	i = l
-	ii = i
-	while l <= h: # puts each possible coord into coords
-		coords.append([l,i])
-		if i == h: # if i made it to h
-			l += 1 # add one to l
-			i = ii # reset i
-		else:
-			i += 1 # otherwise add to i
+	lRr = lR # low-Right reset
+	while lL <= hL:
+		while lR <= hR:
+			coords.append([lL,lR])
+			lR += 1
+		lL += 1
+		lR = lRr
 	
-	# adding more Saturday
+	return coords
