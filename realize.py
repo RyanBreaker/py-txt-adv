@@ -1,3 +1,4 @@
+#File is now deprecated as the function has been moved to locations.py
 def realize(coords):
     """
     "realize" = to find all of the coords inside an area
