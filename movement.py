@@ -13,7 +13,7 @@ def limit(ty):
     x_min = 0
     y_max = 10
     y_min = 0
-    
+
     if ty == 1:
         if x + 1 > x_max:
             return False
@@ -37,23 +37,26 @@ def limit(ty):
     else:
         exit("ERROR: In limit.")
 
+
 def go(direc):
     """
     The player-entered 'go' function.
     If the player entered go, the second arg is passed as direc
     and the player can move in such directions as listed below.
-    
+
     """
-    global x,y
-    direcs = ["north",'n', "south",'s', "east",'e', "west",'w']
-    diags  = ["northeast",'ne', "northwest",'nw', "southeast",'se', "southwest",'sw']
+    global x, y
+    direcs = ["north", 'n', "south", 's',
+              "east", 'e', "west", 'w']
+    diags = ["northeast", 'ne', "northwest", 'nw',
+             "southeast", 'se', "southwest", 'sw']
     if direc in direcs:
         if direc == direcs[0] or direc == direcs[1]:
             # North
             if limit(1):
                 x += 1
             else:
-                print "Cannot go that far North!" # will make error better
+                print "Cannot go that far North!"  # will make error better
         elif direc == direcs[2] or direc == direcs[3]:
             # South
             if limit(2):

@@ -1,4 +1,6 @@
 # Define your locations below this function definition
+
+
 def realize(coords):
     """
     "realize" = to find all of the coords inside an area
@@ -8,39 +10,41 @@ def realize(coords):
     coords = [[2, 4],[6,4],[6,10],[2,10]]
     ###    Left^  ^Right
     """
-    coordsL = [] # Left  coords Laid-out
-    coordsR = [] # Right coords Laid-out
-    for i,j in coords: # for each list in coords list:
-        coordsL.append(i) # append first
-        coordsR.append(j) # append right
-    
-    if len(coordsL) == 2: # checking if 2 or 4 points were given
+    coordsL = []
+    coordsR = []
+    for i, j in coords:
+        coordsL.append(i)  # append left
+        coordsR.append(j)  # append right
+
+    # checking if 2 or 4 points were given
+    if len(coordsL) == 2:
         h = 1
     elif len(coordsL) == 4:
         h = 3
     else:
         exit("ERROR")
-    coordsL.sort()  # Sort to get lowest and highest easily
-    lL = coordsL[0] # lowest-left
-    hL = coordsL[h] # highest-left
+    coordsL.sort()   # Easily getting lowest and highest
+    lL = coordsL[0]  # lowest-left
+    hL = coordsL[h]  # highest-left
     coordsR.sort()
     lR = coordsR[0]
     hR = coordsR[h]
-    
-    if lL > hL or lL == hL: # sanity check
-        exit("ERROR: In realize") # Need to work on better error messages
+
+    if lL > hL or lL == hL:  # sanity check
+        exit("ERROR: In realize")  # Need to work on better error messages
     elif lR > hR or lR == hR:
         exit("ERROR: In realize")
-    
-    coords = [] # resetting coords list to accept new values
-    lRr = lR # low-Right reset
+
+    # resetting coords list to accept new values
+    coords = []
+    lRr = lR    # low-Right reset
     while lL <= hL:
         while lR <= hR:
-            coords.append([lL,lR])
+            coords.append([lL, lR])
             lR += 1
         lL += 1
         lR = lRr
-    
+
     return coords
 
 ###################################
@@ -48,6 +52,6 @@ def realize(coords):
 # Use only square coordinates for now
 # Either all 4 points or 2 diagonal corners can be used
 # All areas shall be defined and entered into the realize() function here
-forest1 = [[0,5],[5,10]]
+forest1 = [[0, 5], [5, 10]]
 forest1 = realize(forest1)
 #print forest1
