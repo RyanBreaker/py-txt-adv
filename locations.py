@@ -1,3 +1,4 @@
+import movement
 # Define your locations below this function definition
 
 
@@ -54,4 +55,10 @@ def realize(coords):
 # All areas shall be defined and entered into the realize() function here
 forest1 = [[0, 5], [5, 10]]
 forest1 = realize(forest1)
-#print forest1
+
+
+def checkLoc():
+    """
+    """
+    if [movement.x, movement.y] in forest1:
+        return 'forest1'

@@ -43,7 +43,6 @@ def go(direc):
     The player-entered 'go' function.
     If the player entered go, the second arg is passed as direc
     and the player can move in such directions as listed below.
-
     """
     global x, y
     direcs = ["north", 'n', "south", 's',
