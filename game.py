@@ -1,12 +1,12 @@
-### The actual game setup and loop
-print "Loading..."
+from movement import go, x, y
+#from locations import checkIn
 
-#import locations
-import movement
+### The actual game setup and loop starts here
+print "Loading..."
 
 ### Insert other starting imports and stuff later
 
-print "Current location: %d,%d" % (movement.x, movement.y)
+print "Current location: %d,%d" % (x, y)
 
 while True:
     # Get user input (ui).
@@ -15,8 +15,8 @@ while True:
     ui = ui.split(' ')
     ui.append("")  # prevent traceback
     if ui[0] == "go":
-        movement.go(ui[1])
-        print "Current location: %d,%d" % (movement.x, movement.y)
+        go(ui[1])
+        print "Current location: %d,%d" % (x, y)
     elif ui[0] == "quit":
         exit("Bye!")
     else:

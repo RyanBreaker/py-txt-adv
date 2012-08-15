@@ -1,3 +1,4 @@
+from movement import x, y
 # Define your locations below this function definition
 
 
@@ -55,3 +56,10 @@ def realize(coords):
 forest1 = [[0, 5], [5, 10]]
 forest1 = realize(forest1)
 #print forest1
+
+
+def checkIn(area):
+    """
+    """
+    if [x, y] in area:
+        print "foo"
