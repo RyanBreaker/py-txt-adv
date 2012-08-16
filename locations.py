@@ -86,8 +86,6 @@ def checkLoc(xy):
     Simply checks if the player is within an area and will call the
     appropriate function as needed.
     """
-    print xy
-    print forest1
     #xy = [[movement.x, movement.y]]
     if xy in forest1:
         Fforest1(xy)

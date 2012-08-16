@@ -21,6 +21,9 @@ while True:
     if ui[0] == "go":
         movement.go(ui[1])
         currLoc()
+        locations.checkLoc([movement.x, movement.y])
+    elif ui[0] == "look":
+        locations.checkLoc([movement.x, movement.y])
     elif ui[0] == "quit":
         exit("Bye!")
     else:
@@ -28,4 +31,3 @@ while True:
             print "I don't understand that."
         else:
             print
-    locations.checkLoc([[movement.x, movement.y]])
