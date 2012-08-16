@@ -1,39 +1,31 @@
-import messages
 import movement
-# Import all areas after checkIn
-from locations import checkLoc, forest1
+import locations
+
 
 def currLoc():
     """
-    Prints current player location for 
-    debugging.
+    Prints current player location for debugging.
     """
     print "Current location: %d,%d" % (movement.x, movement.y)
 
+currLoc()
 
-### The actual game setup and loop starts here
-print "Loading..."
-
-#currLoc()
-
+### The actual game setup and loop starts here:
 while True:
     # Get user input (ui).
     ui = []  # reset ui
     ui = raw_input('> ')
     ui = ui.split(' ')
-    ui.append("")  # prevent traceback
+    ui.append("")  # Prevent traceback.
 
     if ui[0] == "go":
         movement.go(ui[1])
-        #currLoc()
+        currLoc()
     elif ui[0] == "quit":
         exit("Bye!")
     else:
         if ui[0] != "":
             print "I don't understand that."
-
-    # Check location
-    loc = checkLoc()
-    
-    if loc == 'forest1':
-        print messages.forest1_travel
+        else:
+            print
+    locations.checkLoc([[movement.x, movement.y]])

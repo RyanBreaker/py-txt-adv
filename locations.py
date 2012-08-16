@@ -1,50 +1,65 @@
+import messages
 import movement
 # Define your locations below this function definition
 
 
-def realize(coords):
+def realize(ty, coords):
     """
     "realize" = to find all of the coords inside an area
-    Finds them by laying-out the coords in coordL/coordsR,
+    Finds them by laying-out the coords in coordX/coordsY,
     getting the lowest and highest elements, and returning
     the possible coords.
-    coords = [[2, 4],[6,4],[6,10],[2,10]]
-    ###    Left^  ^Right
+    There are two modes:
+        1: Finds each coordinate within the area
+        2: Finds just the coordinates of the edges of the area
+    coords = [[2, 4],[6, 4]]
+    ###       X^  ^Y
     """
-    coordsL = []
-    coordsR = []
+    coordsx = []
+    coordsy = []
     for i, j in coords:
-        coordsL.append(i)  # append left
-        coordsR.append(j)  # append right
+        coordsx.append(i)  # append left
+        coordsy.append(j)  # append right
 
     # checking if 2 or 4 points were given
-    if len(coordsL) == 2:
+    if len(coordsx) == 2:
         h = 1
-    elif len(coordsL) == 4:
+    elif len(coordsx) == 4:
         h = 3
     else:
         exit("ERROR")
-    coordsL.sort()   # Easily getting lowest and highest
-    lL = coordsL[0]  # lowest-left
-    hL = coordsL[h]  # highest-left
-    coordsR.sort()
-    lR = coordsR[0]
-    hR = coordsR[h]
+    coordsx.sort()   # Easily getting lowest and highest
+    lx = coordsx[0]  # lowest-X
+    hx = coordsx[h]  # highest-X
+    coordsy.sort()
+    ly = coordsy[0]  # same for y
+    hy = coordsy[h]
 
-    if lL > hL or lL == hL:  # sanity check
+    if lx > hx or lx == hx:  # sanity check
         exit("ERROR: In realize")  # Need to work on better error messages
-    elif lR > hR or lR == hR:
+    elif ly > hy or ly == hy:
         exit("ERROR: In realize")
 
     # resetting coords list to accept new values
     coords = []
-    lRr = lR    # low-Right reset
-    while lL <= hL:
-        while lR <= hR:
-            coords.append([lL, lR])
-            lR += 1
-        lL += 1
-        lR = lRr
+    if ty == 1:
+        lyr = ly   # low-Right reset
+        while lx <= hx:
+            while ly <= hy:
+                coords.append([lx, ly])
+                ly += 1
+            lx += 1
+            ly = lyr
+    elif ty == 2:
+        # Goes around the edges of the area.
+        for x in range(lx, hx + 1):
+            coords.append([x, ly])
+        for y in range(ly, hy + 1):
+            coords.append([hx, y])
+        for x in range(hx, lx - 1, -1):
+            coords.append([x, hy])
+        for y in range(hy, ly - 1, -1):
+            coords.append([lx, y])
 
     return coords
 
@@ -54,11 +69,26 @@ def realize(coords):
 # Either all 4 points or 2 diagonal corners can be used
 # All areas shall be defined and entered into the realize() function here
 forest1 = [[0, 5], [5, 10]]
-forest1 = realize(forest1)
+bigTree1 = [[3, 7]]
+
+forest1Outline = realize(2, forest1)
+forest1 = realize(1, forest1)
 
 
-def checkLoc():
+def Fforest1(xy):
+    print messages.forest1_travel
+    if xy in bigTree1:
+        print messages.bigTree1
+
+
+def checkLoc(xy):
     """
+    Simply checks if the player is within an area and will call the
+    appropriate function as needed.
     """
-    if [movement.x, movement.y] in forest1:
-        return 'forest1'
+    print xy
+    print forest1
+    #xy = [[movement.x, movement.y]]
+    if xy in forest1:
+        Fforest1(xy)
+    #del(xy)

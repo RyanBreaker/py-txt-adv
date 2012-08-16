@@ -3,10 +3,10 @@ def limit(ty):
     Checks if the player can move somewhere and not outside of
     the game world.
     ty = type
-    ty 1 = check if x can ++ (North)
-    ty 2 = check if x can -- (South)
-    ty 3 = check if y can ++ (East)
-    ty 4 = check if y can -- (West)
+    ty 1 = check if x can ++ (East)
+    ty 2 = check if x can -- (West)
+    ty 3 = check if y can ++ (North)
+    ty 4 = check if y can -- (South)
     """
     # Define X,Y minimums and maximums here:
     x_max = 10
@@ -53,25 +53,25 @@ def go(direc):
         if direc == direcs[0] or direc == direcs[1]:
             # North
             if limit(1):
-                x += 1
+                y += 1
             else:
                 print "Cannot go that far North!"  # will make error better
         elif direc == direcs[2] or direc == direcs[3]:
             # South
             if limit(2):
-                x -= 1
+                y -= 1
             else:
                 print "Cannot go that far South!"
         elif direc == direcs[4] or direc == direcs[5]:
             # East
             if limit(3):
-                y += 1
+                x += 1
             else:
                 print "Cannot go that far East!"
         elif direc == direcs[6] or direc == direcs[7]:
             # West
             if limit(4):
-                y -= 1
+                x -= 1
             else:
                 print "Cannot go that far West!"
         else:
@@ -87,15 +87,15 @@ def go(direc):
         elif direc == diags[2] or direc == diags[3]:
             # NorthWest
             if limit(1) and limit(4):
-                x += 1
-                y -= 1
+                x -= 1
+                y += 1
             else:
                 print "Cannot go NorthWest!"
         elif direc == diags[4] or direc == diags[5]:
             # SouthEast
             if limit(2) and limit(3):
-                x -= 1
-                y += 1
+                x += 1
+                y -= 1
             else:
                 print "Cannot go SouthEast!"
         elif direc == diags[6] or direc == diags[7]:
