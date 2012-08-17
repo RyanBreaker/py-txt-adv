@@ -76,7 +76,11 @@ forest1 = realize(1, forest1)
 
 
 def Fforest1(xy):
-    print messages.forest1_travel
+    from game import ui
+    if ui[0] == "go":
+        print messages.forest1_travel
+    elif ui[0] == "look":
+        print messages.forest1_look
     if xy in bigTree1:
         print messages.bigTree1
 

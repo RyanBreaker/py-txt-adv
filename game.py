@@ -1,3 +1,5 @@
+#!/usr/bin/python2.7
+
 import movement
 import locations
 
@@ -13,7 +15,6 @@ currLoc()
 ### The actual game setup and loop starts here:
 while True:
     # Get user input (ui).
-    ui = []  # reset ui
     ui = raw_input('> ')
     ui = ui.split(' ')
     ui.append("")  # Prevent traceback.
