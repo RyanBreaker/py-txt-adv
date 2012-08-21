@@ -15,7 +15,7 @@ currLoc()
 ### The actual game setup and loop starts here:
 while True:
     # Get user input (ui).
-    ui = raw_input('> ')
+    ui = raw_input('> ').lower()
     ui = ui.split(' ')
     ui.append("")  # Prevent traceback.
 
