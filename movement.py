@@ -14,22 +14,22 @@ def limit(ty):
     y_max = 10
     y_min = 0
 
-    if ty == 1:
+    if ty == "east":
         if x + 1 > x_max:
             return False
         else:
             return True
-    elif ty == 2:
+    elif ty == "west":
         if x - 1 < x_min:
             return False
         else:
             return True
-    elif ty == 3:
+    elif ty == "north":
         if y + 1 > y_max:
             return False
         else:
             return True
-    elif ty == 4:
+    elif ty == "south":
         if y - 1 < y_min:
             return False
         else:
@@ -52,25 +52,25 @@ def go(direc):
     if direc in direcs:
         if direc == direcs[0] or direc == direcs[1]:
             # North
-            if limit(1):
+            if limit("north"):
                 y += 1
             else:
                 print "Cannot go that far North!"  # will make error better
         elif direc == direcs[2] or direc == direcs[3]:
             # South
-            if limit(2):
+            if limit("south"):
                 y -= 1
             else:
                 print "Cannot go that far South!"
         elif direc == direcs[4] or direc == direcs[5]:
             # East
-            if limit(3):
+            if limit("east"):
                 x += 1
             else:
                 print "Cannot go that far East!"
         elif direc == direcs[6] or direc == direcs[7]:
             # West
-            if limit(4):
+            if limit("west"):
                 x -= 1
             else:
                 print "Cannot go that far West!"
