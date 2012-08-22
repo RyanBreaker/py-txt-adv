@@ -17,7 +17,11 @@ while True:
     # Get user input (ui).
     ui = raw_input('> ').lower()
     ui = ui.split(' ')
-    ui.append("")  # Prevent traceback.
+    ui.append(None)  # Prevent traceback.
+    
+    while ui[0] == '' and ui[1] is not None:
+        # Remove any blanks, but leave one open to check.
+        del(ui[0])
 
     if ui[0] == "go":
         movement.go(ui[1])
@@ -31,4 +35,4 @@ while True:
         if ui[0] != "":
             print "I don't understand that."
         else:
-            print
+            pass
