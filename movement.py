@@ -1,12 +1,12 @@
-def limit(ty):
+def limit(dir):
     """
     Checks if the player can move somewhere and not outside of
     the game world.
-    ty = type
-    ty 1 = check if x can ++ (East)
-    ty 2 = check if x can -- (West)
-    ty 3 = check if y can ++ (North)
-    ty 4 = check if y can -- (South)
+    dir = direction
+    dir "east" = check if x can ++
+    dir "west" = check if x can --
+    dir "north" = check if y can ++
+    dir "south" = check if y can --
     """
     # Define X,Y minimums and maximums here:
     x_max = 10
@@ -14,22 +14,22 @@ def limit(ty):
     y_max = 10
     y_min = 0
 
-    if ty == "east":
+    if dir == "east":
         if x + 1 > x_max:
             return False
         else:
             return True
-    elif ty == "west":
+    elif dir == "west":
         if x - 1 < x_min:
             return False
         else:
             return True
-    elif ty == "north":
+    elif dir == "north":
         if y + 1 > y_max:
             return False
         else:
             return True
-    elif ty == "south":
+    elif dir == "south":
         if y - 1 < y_min:
             return False
         else:
